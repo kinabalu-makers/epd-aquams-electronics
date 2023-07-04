@@ -18,3 +18,6 @@ source "$directory"/venv/bin/activate
 
 echo "Running main.py"
 python "$directory"/main.py
+
+echo "Copy file to file server direcories"
+cp -r "$directory"/ESP32/* /home/pi/file_server/ESP32
