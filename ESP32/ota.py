@@ -6,7 +6,7 @@ import machine
 
 mqtt_server = config.MQTT_SERVER
 
-def download_file(sensor_type):
+def download_file():
     server_url = f"http://{mqtt_server}:8000/ESP32/"
     file_list = []
     i = 0
@@ -41,9 +41,10 @@ def download_file(sensor_type):
         else:
             print(response.status_code)
         if i >= len(file_list):
-            print("download complete.")
-            print("downloading config file...")
-            download_config(sensor_type)
+            print("download file complete.")
+            print("resetting machine...")
+            utime.sleep(5)
+            machine.reset()
 
 def download_config(sensor_type):
     if sensor_type is not None:
@@ -55,8 +56,9 @@ def download_config(sensor_type):
             f.write(response.content)
             f.close()
             response.close()
-            print("download complete.")
+            print("download config complete.")
             print("resetting machine...")
+            utime.sleep(10)
             machine.reset()
         else:
             print(response.status_code)

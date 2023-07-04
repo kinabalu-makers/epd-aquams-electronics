@@ -27,7 +27,11 @@ class DHT:
         if topic == b"server" and msg == b"download_scripts":
             print("updating code...")
             from ota import download_file
-            download_file(self.sensor_type)
+            download_file()
+        if topic == b"server" and msg == b"download_configs":
+            print("updating configs...")
+            from ota import download_config
+            download_config(self.sensor_type)
 
     def connect_and_subscribe(self):
         self.client = MQTTClient(self.client_id, self.mqtt_server)
