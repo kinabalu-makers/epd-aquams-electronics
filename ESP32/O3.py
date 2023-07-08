@@ -120,6 +120,11 @@ class O3_sensor:
                         print("error:", err_message)
                         msg_string = ujson.dumps(err_message)
                         self.client.publish(self.topic_pub, msg_string)
+                        msg_string = ""
+                        err_message = {
+                            "ozone_concentration": None,
+                            "error": None
+                        }
                     self.last_message = utime.time()
             except BaseException as e:
                 print("error:", e)
