@@ -57,12 +57,14 @@ python -m venv venv
 
 ### Sensors Unit Types
 
-|   | gasType  | Unit | Concentration | Voltage | Temperature | Range  |
-|---|----------|------|---------------|---------|-------------|--------|
-|   | CO       | ppm  | float         | float   | float       | 0-1000 |
-|   | SO2      | ppm  | float         | float   | float       | 0-20   |
-|   | NO2      | ppm  | float         | float   | float       | 0-20   |
-|   | O3       | ppm  | float         | float   | float       | 0-10   |
-|   | Temp_C   | ℃    | float         | float   | float       | -40-80 |
-|   | Temp_F   | ℉    | float         | float   | float       | 40-176 |
-|   | Humidity | %RH  | float         | float   | float       | 0-100  |
+|   | gasType  | Unit  | Concentration | Voltage | Temperature | Range  |
+|---|----------|-------|---------------|---------|-------------|--------|
+|   | CO       | ppm   | float         | float   | float       | 0-1000 |
+|   | SO2      | ppm   | float         | float   | float       | 0-20   |
+|   | NO2      | ppm   | float         | float   | float       | 0-20   |
+|   | O3       | ppm   | float         | float   | float       | 0-10   |
+|   | Temp_C   | ℃     | float         | float   | float       | -40-80 |
+|   | Temp_F   | ℉     | float         | float   | float       | 40-176 |
+|   | Humidity | %RH   | float         | float   | float       | 0-100  |
+|   | PM2.5    | µg/m³ | float         | -       | -           | 0-1000 |
+|   | PM10     | µg/m³ | float         | -       | -           | 0-1000 |
