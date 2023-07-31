@@ -1,0 +1,27 @@
+{
+  "data": {
+    "DHT_data": {
+      "error": "ERROR MSG"
+    },
+    "O3_data": {
+      "error": "ERROR MSG"
+    },
+    "CO_data": {
+      "error": "ERROR MSG"
+    },
+    "PM25": {
+      "error": "ERROR MSG"
+    },
+    "NO2_data": {
+      "error": "ERROR MSG"
+    },
+    "GPS_data": {
+      "error": "ERROR MSG"
+    }
+  },
+  "edge_device": {
+    "device_id": "EDGE_DEVICE_ID",
+    "device_auth_key": "EDGE_DEVICE_AUTH_KEY",
+    "device_time": "EDGE_DEVICE_TIME"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "data": {
+    "O3_data": {
+      "unit": "PPM",
+      "gasType": "O3",
+      "concentration": 0.00,
+      "voltage": 0.00,
+      "temperature": 0.00
+    },
+    "CO_data": {
+      "unit": "PPM",
+      "gasType": "CO",
+      "concentration": 0.00,
+      "voltage": 0.00,
+      "temperature": 0.00
+    },
+    "NO2_data": {
+      "unit": "PPM",
+      "gasType": "NO2",
+      "concentration": 0.00,
+      "temperature": 0.00,
+      "voltage": 0.00
+    },
+    "SO2_data": {
+      "unit": "PPM",
+      "gasType": "SO2",
+      "concentration": 0.00,
+      "temperature": 0.00,
+      "voltage": 0.00
+    },
+    "DHT_data": {
+      "temp_f": 0.00,
+      "humidity": 0.00,
+      "temp_c": 0.00
+    },
+    "PM25_DATA": {
+      "unit": "μg/m3",
+      "PM25": 0.00,
+      "PM10": 0.00
+    },
+    "GPS_data": {
+      "lat": null,
+      "long": null
+    }
+  },
+  "edge_device": {
+    "device_id": "EDGE_DEVICE_ID",
+    "device_auth_key": "EDGE_DEVICE_AUTH_KEY",
+    "device_time": "EDGE_DEVICE_TIME"
+  }
+}
