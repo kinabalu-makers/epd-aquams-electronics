@@ -109,19 +109,27 @@ class O3_sensor:
                     """Smooth data collection the collection range is 1-100"""
                     try:
                         ozone_concentration = ozone.get_ozone_data(COLLECT_NUMBER)
-                        print("Ozone concentration is %d PPM." % ozone_concentration)
-                        msg_string = f"{round(ozone_concentration, 0)} PPM"
-                        self.client.publish(self.topic_pub, msg_string)
+                        print("Ozone concentration is %d PPM." % round(ozone_concentration, 2))
+                        value = round(ozone_concentration, 2)
+                        ujson_msg = {
+                            "unit": "PPM",
+                            "gasType": "O3",
+                            "concentration": value
+                        }
+                        value = ujson.dumps(ujson_msg)
+                        self.client.publish(self.topic_pub, value)
                     except BaseException as error:
-                        err_message = {
-                            "ozone_concentration": msg_string,
+                        error_msg = {
+                            "unit": "PPM",
+                            "gasType": "O3",
+                            "concentration": value,
                             "error": error
                         }
-                        print("error:", err_message)
-                        msg_string = ujson.dumps(err_message)
+                        print("error:", error_msg)
+                        msg_string = ujson.dumps(error_msg)
                         self.client.publish(self.topic_pub, msg_string)
                         msg_string = ""
-                        err_message = {
+                        error_msg = {
                             "ozone_concentration": None,
                             "error": None
                         }
