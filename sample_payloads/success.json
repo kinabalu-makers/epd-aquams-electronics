@@ -1,7 +1,7 @@
 {
   "data": {
     "O3_data": {
-      "unit": "PPM",
+      "unit": "PPB",
       "gasType": "O3",
       "concentration": 0.00
     },

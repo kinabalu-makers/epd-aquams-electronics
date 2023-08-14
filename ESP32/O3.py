@@ -112,7 +112,7 @@ class O3_sensor:
                         print("Ozone concentration is %d PPM." % round(ozone_concentration, 2))
                         value = round(ozone_concentration, 2)
                         ujson_msg = {
-                            "unit": "PPM",
+                            "unit": "PPB",
                             "gasType": "O3",
                             "concentration": value
                         }
@@ -120,7 +120,7 @@ class O3_sensor:
                         self.client.publish(self.topic_pub, value)
                     except BaseException as error:
                         error_msg = {
-                            "unit": "PPM",
+                            "unit": "PPB",
                             "gasType": "O3",
                             "concentration": value,
                             "error": error
