@@ -109,7 +109,7 @@ class O3_sensor:
                     """Smooth data collection the collection range is 1-100"""
                     try:
                         ozone_concentration = ozone.get_ozone_data(COLLECT_NUMBER)
-                        print("Ozone concentration is %d PPM." % round(ozone_concentration, 2))
+                        print("Ozone concentration is %d PPB." % round(ozone_concentration, 2))
                         value = round(ozone_concentration, 2)
                         ujson_msg = {
                             "unit": "PPB",
