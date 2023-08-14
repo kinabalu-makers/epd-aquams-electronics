@@ -74,10 +74,11 @@ class MultiGas:
                     try:
                         if(self.gas.data_is_available() == True):
                             GasType = str(self.gas.gastype)
-                            temp = str(round(self.gas.temp, 2))
-                            Concentration = round(self.gas.gasconcentration,2)
-                            volt_data = str(self.gas.read_volatage_data()) 
+                            temp = float(round(self.gas.temp, 2))
+                            Concentration = float(round(self.gas.gasconcentration,2))
+                            volt_data = float(round(self.gas.read_volatage_data(), 2)) 
                             ujson_msg = {
+                                "unit": "PPM",
                                 "gasType": GasType,
                                 "concentration": Concentration,
                                 "temperature": temp,
@@ -94,10 +95,10 @@ class MultiGas:
 
                     except BaseException as e:
                         error_message = {
-                            "gasType": self.gas.gastype,
-                            "concentration": self.gas.gasconcentration,
-                            "temperature": self.gas.temp,
-                            "voltage": volt_data,
+                            "gasType": str(self.gas.gastype),
+                            "concentration": float(round(self.gas.gasconcentration, 2)),
+                            "temperature": float(round(self.gas.temp, 2)),
+                            "voltage": float(round(self.gas.read_volatage_data(), 2)),
                             "error": e
                         }
                         err_msg_string = ujson.dumps(error_message)
