@@ -73,9 +73,9 @@ class DHT:
                         hum = self.DHT_sensor.humidity()
                         temp_f = temp * (9/5) + 32.0
                         ujson_msg = {
-                            "temp_c": float(temp),
-                            "temp_f": float(temp_f),
-                            "humidity": float(hum)
+                            "temp_c": float(round(temp, 2)),
+                            "temp_f": float(round(temp_f, 2)),
+                            "humidity": float(round(hum, 2))
                         }
                         msg_string = ujson.dumps(ujson_msg)
                         print(ujson_msg)
@@ -83,9 +83,9 @@ class DHT:
                         self.last_message = utime.time()
                     except BaseException as e:
                         err_message = {
-                            "temp_c": float(self.DHT_sensor.temperature()),
-                            "temp_f": float(self.DHT_sensor.temperature()) * (9/5) + 32.0,
-                            "humidity": float(self.DHT_sensor.humidity()),
+                            "temp_c": float(round(self.DHT_sensor.temperature(), 2)),
+                            "temp_f": float(round(self.DHT_sensor.temperature(), 2)) * (9/5) + 32.0,
+                            "humidity": float(round(self.DHT_sensor.humidity(), 2)),
                             "error": e
                         }
                         err_msg_string = ujson.dumps(err_message)
