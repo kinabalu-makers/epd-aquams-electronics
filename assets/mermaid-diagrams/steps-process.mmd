@@ -1,0 +1,24 @@
+graph TD
+    subgraph NodeRED
+        O[1. Run compare scripts in every 10 minutes]
+        E[6. Notify MicroPython Devices to download the scripts]
+    end
+
+    subgraph Raspberrypi
+        A[2. Compare Local and Remote Branch Commits]
+        B[3. If commits are different?]
+        C[4. When commits are ahead or different, pull remote branch]
+        D[5. Copy scripts to HTTP server directories]
+    end
+
+    subgraph MicroPythonDevices
+        J[7. MicroPython Devices download the files and overwrite the current scripts]
+    end
+
+    A --> B
+    B -->|Commits are same| O
+    B -->|Commits are different| C
+    C -->|Pull completed| D
+    D -->|Files copied| E
+    E -->|Devices notified| J
+    O -->|Every 10 minutes| A
