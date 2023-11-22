@@ -1,20 +1,37 @@
 # epd-aquams-electronics
-## Setup auto-compare branch commit
+
+## Setup On-The-Air Update for Micropython ESP32
+On The Air Update for Micropython ESP32 using Github repository on Raspberrypi http server.
+
+## Prerequisites
+- Must have a github account
+- Have created github [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)
+
 ### Create a config.json file
-```
 1. Follow the config-sample.json
 2. Replace the details with your details
-```
+3. create a folder /home/pi/file_server/ESP32
 
 ### Setup Python Virtual Environment
-```
+```bash
+# Create a pip virtual environment
 python -m venv venv
-/venv/Scripts/activate
-```
-### run
-``` python main.py```
 
-## Using MicroPython
+# Activate the virtual environment
+source /venv/bin/activate
+
+# Install required libaries
+pip install -r requirements.txt
+```
+### Run on node-red for every 10 minutes
+```bash
+# 1. Add inject node interval 10 minutes
+
+# 2. Add this command into a script node
+cd development/epd-aquams-electronics/ && bash run.sh
+```
+
+## Setup MicroPython for ESP32 or ESP8266
 ## Prerequisites
 - For Windows must install CP210x USB to UART Bridge
 
@@ -68,3 +85,8 @@ python -m venv venv
 |   | Humidity | %RH   | float         | float   | float       | 0-100  |
 |   | PM2.5    | µg/m³ | float         | -       | -           | 0-1000 |
 |   | PM10     | µg/m³ | float         | -       | -           | 0-1000 |
+
+
+The Architectures:
+
+[<img src="assets/images/steps-process.png" width="1024px" />](assets/images/steps-process.png "Micropython OTA Architecture" )
